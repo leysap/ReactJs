@@ -1,6 +1,6 @@
 import React from 'react'
 import "./style.scss"
-import carrito from "./carrito-de-compras.png"
+import CartWidget from '../CartWidget'
 
 const NavBar = () => {
     return (
@@ -16,16 +16,17 @@ const NavBar = () => {
                             <a className="nav-link active" aria-current="page" href="/#">Remeras</a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="/#">Pantalones</a>
+                            <a className="nav-link" href="/#">Jeans</a>
                         </li>
                         <li className="nav-item">
                             <a className="nav-link" href="/#">Abrigos</a>
                         </li>
+                        <li className="nav-item">
+                            <a className="nav-link" href="/#">Shorts</a>
+                        </li>
                     </ul>
                     <span className="navbar-text">
-                        <div id="carrito-imagen">
-                            <button id="btn-carrito"><img src={carrito} alt="carrito"></img></button>
-                        </div>
+                        <CartWidget />
                     </span>
                 </div>
             </div>
