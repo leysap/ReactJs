@@ -13,7 +13,7 @@ const ItemCount = ({ stock, initial, onAdd}) => {
     const restar = () => {
         contador > initial ? setContador(contador - 1) : setContador(contador)
     }
-    console.log("Cantidad: " + contador)
+    
     return (
         
         <div className="row d-md-flex justify-content-md-center">
