@@ -8,7 +8,7 @@ const ItemList = ({ product }) => {
     return (
         <div className="container">
             <div className="row ListGroup">
-                <div className="d-flex justify-content-around">
+                <div className="d-flex flex-wrap justify-content-around">
                 {product.map( p =>  
                     <Item key={p.id} product={p} />
                 )}
