@@ -1,6 +1,6 @@
 import React from 'react'
 import ItemCount from './ItemCount'
-import ItemList from './ItemList'
+import ItemList from './ItemList/ItemList'
 import { useState, useEffect } from 'react'
 import { getProducts } from '../productos'
 

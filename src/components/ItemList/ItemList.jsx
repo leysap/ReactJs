@@ -1,12 +1,13 @@
 import React from 'react'
-import Item from './Item/Item'
+import Item from '../Item/Item'
+import "./style.scss"
 
 const ItemList = ({ product }) => {
     console.log(product)
 
     return (
-        <div className="ListGroup container">
-            <div className="row">
+        <div className="container">
+            <div className="row ListGroup">
                 <div className="d-flex justify-content-around">
                 {product.map( p =>  
                     <Item key={p.id} product={p} />
