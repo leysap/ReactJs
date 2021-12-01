@@ -15,7 +15,7 @@ const ItemDetail = ({ item }) => {
             </div>
             <div className="item-card">
                 <h4 className="card-title text-center">{item.name}</h4>
-                <p>Remera mangas cortas de algodón. Con corazón</p>
+                <p>{item.description}</p>
                 <p className="card-text">Precio: ${item.price}</p>
                 <ItemCount stock="10" initial="1" onAdd={onAdd} />
             </div>
