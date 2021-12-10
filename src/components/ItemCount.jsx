@@ -20,12 +20,11 @@ const ItemCount = ({ stock, initial, onAdd}) => {
             <div className="col">
                 <div className="card">
                     <div className="card-body">
-                        <p className="card-text">{contador}</p>
                         <div className="d-grid gap-3 d-md-flex justify-content-md-center">
                             <button className="btn btn-secondary" onClick={() => sumar()}><i className="fas fa-plus"></i></button>
+                            <p className="card-text">{contador}</p>
                             <button className="btn btn-secondary" onClick={() => restar()} ><i className="fas fa-minus"></i></button>
                         </div>
-                        <p>{stock} unidades disponibles</p>
                         <div className="btn-carrito d-grid gap-2">
                             <button className="btn btn-outline-primary" onClick={() => onAdd()}type="button">Agregar al carrito</button>
                         </div>

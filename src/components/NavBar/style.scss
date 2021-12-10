@@ -3,10 +3,6 @@
     font-weight: 300;
     font-size: 30px;
 }
-#logo-imagen{
-    width:200px;
-    height: 50px;
-}
 #carrito-imagen{
     margin-right: 1em;
 }
@@ -14,32 +10,4 @@
     text-decoration: none;
     border: none;
     background-color:white
-}
-.titulo{
-    text-align: center;
-    margin-top: 1rem;
-    font-weight: 800;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif
-}
-
-.container{
-    padding: 2em;
-    margin-top: 1em;
-    background-color: rgb(230, 202, 202);
-}
-p{
-    text-align: center;
-    font-weight: bolder;
-    font-size: large;
-}
-
-.card-product{
-    text-align: center;
-    border: 2px solid gray;
-    margin-top: 2em;
-    margin-left: 25em;
-    margin-right: 25em;
-}
-.btn-carrito{
-    margin-top: 1em;
 }

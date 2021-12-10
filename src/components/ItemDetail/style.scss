@@ -5,3 +5,21 @@
     flex-wrap: wrap;
     align-items: center;
 }
+.description-product{
+    margin: 1em;
+    padding: 2em;
+    font-size:15px;
+
+}
+.card-title{
+    margin-top: 1em;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bolder;
+}
+.description-product, .card-text{
+    font-family:'Times New Roman', Times, serif;
+
+}
+.btn-carrito{
+    margin-top: 1em;
+}

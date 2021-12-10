@@ -14,10 +14,11 @@ const ItemDetail = ({ item }) => {
                 <img src={item.img} className="card-img-top card-image" alt={item.name}></img>
             </div>
             <div className="item-card">
-                <h4 className="card-title text-center">{item.name}</h4>
-                <p>{item.description}</p>
-                <p className="card-text">Precio: ${item.price}</p>
-                <ItemCount stock="10" initial="1" onAdd={onAdd} />
+                <h4 className="card-title text-center">{item?.name}</h4>
+                <p className="description-product">{item?.description}</p>
+                <p className="card-text">Precio: ${item?.price}</p>
+                <p className="card-text">Stock disponible: {item?.stock}</p>
+                <ItemCount stock={item.stock} initial="1" onAdd={onAdd} />
             </div>
         </div>
     )

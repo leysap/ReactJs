@@ -1,15 +1,20 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
-import { getItem } from '../productos'
+import { getProductById } from '../productos'
 import ItemDetail from './ItemDetail/ItemDetail'
+import {useParams} from "react-router-dom"
+import { Loader } from './Loader'
 
 const ItemDetailContainer = () => {
 
     const [item, setItem] = useState([])
+    const { id } = useParams()
+    
+    console.log(id)
 
     useEffect(() => {
 
-        const list = getItem()
+        const list = getProductById(id)
 
         list.then(response => {
             setItem(response)
@@ -19,12 +24,15 @@ const ItemDetailContainer = () => {
             setItem([])
         })
 
-    }, [])
+    }, [id])
 
     return (
 
         <div className="container">
-            <ItemDetail item={item}/>
+            {item.length !==0 ? 
+            <ItemDetail item={item}/> : 
+            <Loader/>
+            }
         </div>
 
     )
