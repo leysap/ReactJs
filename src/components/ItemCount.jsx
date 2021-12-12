@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 
+
 const ItemCount = ({ stock, initial, onAdd}) => {
 
     const [contador, setContador] = useState(1)
@@ -13,7 +14,7 @@ const ItemCount = ({ stock, initial, onAdd}) => {
     const restar = () => {
         contador > initial ? setContador(contador - 1) : setContador(contador)
     }
-    
+
     return (
         
         <div className="row d-md-flex justify-content-md-center">
@@ -26,7 +27,7 @@ const ItemCount = ({ stock, initial, onAdd}) => {
                             <button className="btn btn-secondary" onClick={() => restar()} ><i className="fas fa-minus"></i></button>
                         </div>
                         <div className="btn-carrito d-grid gap-2">
-                            <button className="btn btn-outline-primary" onClick={() => onAdd()}type="button">Agregar al carrito</button>
+                            <button className="btn btn-outline-primary" onClick={() => onAdd(contador)}type="button">Agregar al carrito</button>
                         </div>
                     </div>
                 </div>

@@ -2,8 +2,21 @@ import React from 'react'
 import "./style.scss"
 import CartWidget from '../CartWidget'
 import { Link } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { getCategories } from '../../productos'
 
 const NavBar = () => {
+
+    const [categories, setCategories] = useState([])
+
+    useEffect(() => {
+
+        getCategories().then(categories => {
+            setCategories(categories)
+
+        })
+    }, [])
+
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <div className="container-fluid">
@@ -13,18 +26,10 @@ const NavBar = () => {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarText">
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li className="nav-item">
-                            <Link to="/category/Remeras" className="nav-link active" aria-current="page" >Remeras</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link to="/category/Pantalones" className="nav-link">Pantalones</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link to="/category/Shorts" className="nav-link" >Shorts</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link to="/category/Abrigos" className="nav-link" >Abrigos</Link>
-                        </li>
+                        {categories.map(cat =>
+                            <li className="nav-item">
+                                <Link className="nav-link" key={cat.id} to={`/category/${cat.id}`}> {cat.description} </Link>
+                            </li>)}
                     </ul>
                     <span className="navbar-text">
                         <CartWidget />
