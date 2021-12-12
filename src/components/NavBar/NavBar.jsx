@@ -27,9 +27,9 @@ const NavBar = () => {
                 <div className="collapse navbar-collapse" id="navbarText">
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                         {categories.map(cat =>
-                            <li className="nav-item">
+                            <li className="nav-item" key={cat.id}>
                                 <Link className="nav-link" key={cat.id} to={`/category/${cat.id}`}> {cat.description} </Link>
-                            </li>)}
+                            </li>)} 
                     </ul>
                     <span className="navbar-text">
                         <CartWidget />

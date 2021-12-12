@@ -27,7 +27,7 @@ const ItemCount = ({ stock, initial, onAdd}) => {
                             <button className="btn btn-secondary" onClick={() => restar()} ><i className="fas fa-minus"></i></button>
                         </div>
                         <div className="btn-carrito d-grid gap-2">
-                            <button className="btn btn-outline-primary" onClick={() => onAdd(contador)}type="button">Agregar al carrito</button>
+                            <button className="btn btn-outline-primary" onClick={() => onAdd()}type="button">Agregar al carrito</button>
                         </div>
                     </div>
                 </div>

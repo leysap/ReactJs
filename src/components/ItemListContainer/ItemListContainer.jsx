@@ -6,6 +6,7 @@ import { useParams } from 'react-router'
 import { Loader } from '../Loader'
 import "./style.scss"
 
+
 const ItemListContainer = ({ titulo }) => {
 
     const [product, setProduct] = useState([])
@@ -31,10 +32,12 @@ const ItemListContainer = ({ titulo }) => {
     }, [categoryId])
 
     return (
-        <div className="container">
-            {product.length !== 0 ?
-                <div>
-                    {categoryId===undefined ? <h2 className="titulo">{titulo}</h2> : <h2 className='titulo'>{categoryId.toUpperCase()}</h2> }
+        <div >
+            {product.length !== 0 ? 
+                <div className='container'>
+                    {categoryId===undefined ? 
+                    <h2 className="titulo">{titulo}</h2> :
+                    <h2 className="titulo">{categoryId.toUpperCase()}</h2> }
                     <ItemList product={product} />
                 </div> :
                 <Loader />
