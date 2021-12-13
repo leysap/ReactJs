@@ -62,7 +62,7 @@ En src, se encuentra la carpeta "components", en éste se divide en diferentes c
 - **ItemDetailContainer**: dado un ID de producto se encarga de obtener toda la información necesaria para renderizar el detalle en el componente "ItemDetail".
 - **ItemDetail**: se encarga de renderizar los datos otorgados por el "ItemDetailContainer". Este componente contiene el diseño del detalle del producto seleccionado. En él contiene además el componente "ItemCount".
 - **ItemCount**: permite contar la cantidad de productos a agregar al carrito utilizando los botones + o -,  y además se encarga de validar el stock del producto seleccionado.
-- **Navbar**: es el header de mi ecommerce. Se utilizó react-router para navegar por categorias y ir al home de mi página. Se encuentra el componente "CartWidget".  
+- **Navbar**: es el header de mi ecommerce. Se utilizó react-router para navegar por categorias y ir al home de mi página. Se llamó a la función getCategories() y utilizando useState, luego se mapeó las diferentes categorias en el return de mi componente. Dentro de éste además se encuentra el componente "CartWidget".  
 - **CartWidget**: devuelve un botón con una imagen y además la cantidad de productos agregados al carrito.
 - **Loader**: componente que me duevuelve el diseño de mi loader al esperar que se carguen mis productos.
 
