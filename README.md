@@ -1,70 +1,71 @@
-# Getting Started with Create React App
+# A U R O R A
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este es un proyecto realizado completamente con React JS en el curso de Coderhouse.
+Se trata de un ecommerce de venta de ropa femenina urbana. 
 
-## Available Scripts
+## Instalación y Ejecución
 
-In the project directory, you can run:
+Para poder ejecutar el programa deberás colocar en la terminal...
+
+### `npm i o npm install`
+
+Con npm i o npm install podrás instalar todas las dependencias  necesarias para hacer funcionar la aplicación.
 
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Con npm start, podrás iniciar la aplicación. Tarda unos minutos en abrir.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Cntrl + C
 
-### `npm test`
+Con control + C , podrás finalizar la ejecución del programa.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+## ¿Qué lenguaje de programación utilicé?
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Se utilizó: 
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- HTML
+- CSS / SASS
+- Javascript
+- Node JS (para la ejecución del servidor)
+- React JS 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### App.js
 
-### `npm run eject`
+En él se encuentra los routers del proyecto:
+- El ItemListContainer, tiene 2 parámetros: "/" (router principal) y "/category/categoryId" ( es el router de categorias de productos específicos)
+- El ItemDetailContainer tiene como parametro: "/item/id" (es el router de detalle del producto).
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Además se importó Bootstrap v5.1.3
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### productos.js
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Se simula el BackEnd en este archivo, ubicado en src.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- Se creó una constante "productos": contiene un array de todos los productos.
+- Se creó la constante "categories": es un array que contiene un id y description de la category (este array se utilizara para realizar la funcion getCategories().)
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+El mismo contiene diferentes funciones, utilizando Promise:
+**getProducts(category)** : se trata de una función con un parametro (categoria) el cual utilizando un operador ternario, me puede devolver todos los productos o me devuelve los productos (filtrándolos) de acuerdo a la categoria que le paso por parametro de mi función.
+**getProductById**: dada un id, devuelve los datos correspondientes al producto de dicho id.
+**getCategories** : esta función me devuelve mi array de categorias, utilizando Promise, el cual se utilizará en mi componente Navbar.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+### Componentes
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+En src, se encuentra la carpeta "components", en éste se divide en diferentes carpetas con sus respectivos componentes creados y su estilo (SASS).
 
-### Analyzing the Bundle Size
+**ItemListContainer** : se encarga de consultar todos los productos y pasarselos a "ItemList". En el mismo tambien se filtran las categorias.
+**ItemList**: requiere un array de productos (el cual se lo pasa por parámetro), y se encarga de hacer un map y pasarle esos datos al componente "Item".
+**Item**: este componente recibe todos los datos requeridos para renderizar un producto a la pantalla (previsualización del producto).
+**ItemDetailContainer**: dado un ID de producto se encarga de obtener toda la información necesaria para renderizar el detalle en el componente "ItemDetail".
+**ItemDetail**: se encarga de renderizar los datos otorgados por el "ItemDetailContainer". Este componente contiene el diseño del detalle del producto seleccionado. En él contiene además el componente "ItemCount".
+**ItemCount**: permite contar la cantidad de productos a agregar al carrito utilizando los botones + o -,  y además se encarga de validar el stock del producto seleccionado.
+**Navbar**: es el header de mi ecommerce. Se utilizó react-router para navegar por categorias y ir al home de mi página. Se encuentra el componente "CartWidget".  
+**CartWidget**: devuelve un boton con una imagen y además la cantidad de productos agregados al carrito.
+**Loader**: componente que me duevuelve el diseño de mi loader al esperar que se carguen mis productos.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

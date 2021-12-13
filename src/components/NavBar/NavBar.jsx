@@ -13,8 +13,12 @@ const NavBar = () => {
 
         getCategories().then(categories => {
             setCategories(categories)
-
+            
         })
+        .catch(err=> {
+            console.log(err)
+        })
+
     }, [])
 
     return (
