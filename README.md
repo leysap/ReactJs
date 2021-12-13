@@ -47,7 +47,7 @@ Se simula el BackEnd en este archivo, ubicado en src.
 
 
 El mismo contiene diferentes funciones, utilizando Promise:
-- **getProducts(category)** : se trata de una función con un parametro (categoria) el cual utilizando un operador ternario, me puede devolver todos los productos o me devuelve los productos (filtrándolos) de acuerdo a la categoria que le paso por parametro de mi función.
+- **getProducts(category)** : se trata de una función con un parámetro (categoria) el cual utilizando un operador ternario, me puede devolver todos los productos o me devuelve los productos (filtrándolos) de acuerdo a la categoria que le paso por parámetro de mi función.
 - **getProductById**: dada un id, devuelve los datos correspondientes al producto de dicho id.
 - **getCategories** : esta función me devuelve mi array de categorias, utilizando Promise, el cual se utilizará en mi componente Navbar.
 
@@ -56,7 +56,7 @@ El mismo contiene diferentes funciones, utilizando Promise:
 
 En src, se encuentra la carpeta "components", en éste se divide en diferentes carpetas con sus respectivos componentes creados y su estilo (SASS).
 
-- **ItemListContainer** : se encarga de consultar todos los productos y pasárselos a "ItemList". En el mismo tambien se filtran las categorias.
+- **ItemListContainer** : se encarga de consultar todos los productos y pasárselos a "ItemList". En el mismo también se filtran las categorias.
 - **ItemList**: requiere un array de productos (el cual se lo pasa por parámetro), y se encarga de hacer un map y pasarle esos datos al componente "Item".
 - **Item**: este componente recibe todos los datos requeridos para renderizar un producto a la pantalla (previsualización del producto).
 - **ItemDetailContainer**: dado un ID de producto se encarga de obtener toda la información necesaria para renderizar el detalle en el componente "ItemDetail".
