@@ -34,7 +34,7 @@ Se utilizó:
 
 En él se encuentra los routers del proyecto:
 - El ItemListContainer, tiene 2 parámetros: "/" (router principal) y "/category/categoryId" ( es el router de categorias de productos específicos)
-- El ItemDetailContainer tiene como parametro: "/item/id" (es el router de detalle del producto).
+- El ItemDetailContainer tiene como parámetro: "/item/id" (es el router de detalle del producto).
 
 Además se importó Bootstrap v5.1.3
 
@@ -43,7 +43,7 @@ Además se importó Bootstrap v5.1.3
 Se simula el BackEnd en este archivo, ubicado en src.
 
 - Se creó una constante "productos": contiene un array de todos los productos.
-- Se creó la constante "categories": es un array que contiene un id y description de la category (este array se utilizara para realizar la funcion getCategories().)
+- Se creó la constante "categories": es un array que contiene un id y description de la category (este array se utilizará para realizar la función getCategories().)
 
 
 El mismo contiene diferentes funciones, utilizando Promise:
@@ -56,14 +56,14 @@ El mismo contiene diferentes funciones, utilizando Promise:
 
 En src, se encuentra la carpeta "components", en éste se divide en diferentes carpetas con sus respectivos componentes creados y su estilo (SASS).
 
-- **ItemListContainer** : se encarga de consultar todos los productos y pasarselos a "ItemList". En el mismo tambien se filtran las categorias.
+- **ItemListContainer** : se encarga de consultar todos los productos y pasárselos a "ItemList". En el mismo tambien se filtran las categorias.
 - **ItemList**: requiere un array de productos (el cual se lo pasa por parámetro), y se encarga de hacer un map y pasarle esos datos al componente "Item".
 - **Item**: este componente recibe todos los datos requeridos para renderizar un producto a la pantalla (previsualización del producto).
 - **ItemDetailContainer**: dado un ID de producto se encarga de obtener toda la información necesaria para renderizar el detalle en el componente "ItemDetail".
 - **ItemDetail**: se encarga de renderizar los datos otorgados por el "ItemDetailContainer". Este componente contiene el diseño del detalle del producto seleccionado. En él contiene además el componente "ItemCount".
 - **ItemCount**: permite contar la cantidad de productos a agregar al carrito utilizando los botones + o -,  y además se encarga de validar el stock del producto seleccionado.
 - **Navbar**: es el header de mi ecommerce. Se utilizó react-router para navegar por categorias y ir al home de mi página. Se encuentra el componente "CartWidget".  
-- **CartWidget**: devuelve un boton con una imagen y además la cantidad de productos agregados al carrito.
+- **CartWidget**: devuelve un botón con una imagen y además la cantidad de productos agregados al carrito.
 - **Loader**: componente que me duevuelve el diseño de mi loader al esperar que se carguen mis productos.
 
 
