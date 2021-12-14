@@ -1,15 +1,18 @@
 import React from 'react'
 import ItemCount from '../ItemCount'
 import "./style.scss"
-
+import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 
 const ItemDetail = ({ item }) => {
     
+    const [productosCarrito, setproductosCarrito] = useState([]) 
 
-    const onAdd = () => {
+    const onAdd = (contador) => {
         
-        console.log("Se agrego al carrito!")
+        setproductosCarrito(contador)
+        console.log("Se agrego al carrito " + contador)
     }
 
 
@@ -23,7 +26,7 @@ const ItemDetail = ({ item }) => {
                 <p className="card-text">Precio: ${item?.price}</p>
                 <p className="description-product">{item?.description}</p>
                 <p className="card-text">Stock disponible: {item?.stock}</p>
-                <ItemCount stock={item?.stock} initial="1" onAdd={onAdd} />
+                {productosCarrito > 0 ? <Link to="/cart" className="finish-button btn btn-outline-primary ">Finalizar Compra</Link> : <ItemCount stock={item?.stock} initial="1" onAdd={onAdd}/>}
             </div>
         </div>
     )
