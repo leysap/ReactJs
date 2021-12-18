@@ -2,22 +2,26 @@ import React from 'react'
 import "./style.scss"
 import CartWidget from '../CartWidget'
 import { Link } from 'react-router-dom'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useContext } from 'react'
 import { getCategories } from '../../productos'
+import { CartContext } from '../Context/CartContext'
+
 
 const NavBar = () => {
 
     const [categories, setCategories] = useState([])
 
+    const { productoCarrito } = useContext(CartContext)
+
     useEffect(() => {
 
         getCategories().then(categories => {
             setCategories(categories)
-            
+
         })
-        .catch(err=> {
-            console.log(err)
-        })
+            .catch(err => {
+                console.log(err)
+            })
 
     }, [])
 
@@ -33,11 +37,16 @@ const NavBar = () => {
                         {categories.map(cat =>
                             <li className="nav-item" key={cat.id}>
                                 <Link className="nav-link" key={cat.id} to={`/category/${cat.id}`}> {cat.description} </Link>
-                            </li>)} 
+                            </li>)}
                     </ul>
-                    <span className="navbar-text">
-                        <CartWidget />
-                    </span>
+                    {productoCarrito.length === 0 ?
+                        <Link to="/cart" className="navbar-text d-none">
+                            <CartWidget />
+                        </Link> :
+                        <Link to="/cart" className="navbar-text disable">
+                            <CartWidget />
+                        </Link>
+                    }
                 </div>
             </div>
         </nav>

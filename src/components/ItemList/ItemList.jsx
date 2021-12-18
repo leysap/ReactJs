@@ -3,7 +3,7 @@ import Item from '../Item/Item'
 import "./style.scss"
 
 const ItemList = ({ product }) => {
-    console.log(product)
+
 
     return (
         <div className="container">
