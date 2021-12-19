@@ -43,7 +43,7 @@ const NavBar = () => {
                         <Link to="/cart" className="navbar-text d-none">
                             <CartWidget />
                         </Link> :
-                        <Link to="/cart" className="navbar-text disable">
+                        <Link to="/cart" className="navbar-text">
                             <CartWidget />
                         </Link>
                     }

@@ -10,15 +10,17 @@ import {useContext} from "react"
 const ItemDetail = ({ item }) => {
     
     const [cantidad, setCantidad] = useState([]) 
+    
 
     const {addItem} = useContext(CartContext)
-
 
     const onAdd = (contador) => {
         addItem(item,contador)
         setCantidad(contador)
+        
+        
     }
-
+    
     return (
         <div className="Item card" >
             <div>
@@ -28,8 +30,8 @@ const ItemDetail = ({ item }) => {
                 <h4 className="card-title text-center">{item?.name}</h4>
                 <p className="card-text">Precio: ${item?.price}</p>
                 <p className="description-product">{item?.description}</p>
-                <p className="card-text">Stock disponible: {item?.stock}</p>                
-                {cantidad > 0 ? <Link to="/cart" className="finish-button btn btn-outline-primary ">Finalizar Compra</Link> : <ItemCount stock={item?.stock} initial="1" onAdd={onAdd}/>}
+                <p className="card-text">Stock disponible: {item?.stock }</p>                
+                {cantidad >= 1 ? <Link to="/cart" className="finish-button btn btn-outline-primary ">Finalizar Compra</Link> : <ItemCount stock={ item.stock } initial="1" onAdd={onAdd}/>}
             </div>
         </div>
     )

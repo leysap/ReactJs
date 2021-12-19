@@ -6,19 +6,33 @@ export const CartContext = React.createContext()
 const CartContextProvider = ({ children }) => {
 
     const [productoCarrito, setproductoCarrito] = useState([]) 
-
+  
     const addItem = (item,quantity) => {
 
         const flag = isInCart(item.id)
-        console.log(flag);
+
         if(flag){
             let productoRepetido = productoCarrito.find (elemento => elemento.id === item.id);
-            productoRepetido.quantity += quantity; 
-            productoRepetido.price *= productoRepetido.quantity 
-            let cartSinRepetido = productoCarrito.filter (elemento => elemento.id !== item.id);     
-            setproductoCarrito([...cartSinRepetido, productoRepetido]);
+            console.log(productoRepetido.stock)
+            
+            if(quantity <= productoRepetido.stock){
+                productoRepetido.stock = productoRepetido.stock -= quantity
+                productoRepetido.quantity += quantity; 
+                productoRepetido.price *= productoRepetido.quantity 
+                let cartSinRepetido = productoCarrito.filter (elemento => elemento.id !== item.id); 
+                setproductoCarrito([...cartSinRepetido, productoRepetido]);
+                window.alert(`Se agrego al carrito ${quantity}`)
+
+            }else{
+                window.alert(`INGRESASTE MAS PRODUCTOS DEL PERMITIDO`)
+            }
+
         }else {
-            const product = {id: item.id, name: item.name,description: item.description, price: item.price, img: item.img , quantity: quantity}
+            const product = {id: item.id, name: item.name,description: item.description, price: item.price,stock: item.stock , quantity: quantity}
+            product.stock -= quantity
+
+            window.alert(`Se agrego al carrito ${product.name}, cantidad: ${quantity} `)
+            
             product.price *= product.quantity
             setproductoCarrito([...productoCarrito,product])  
         }
@@ -26,9 +40,7 @@ const CartContextProvider = ({ children }) => {
     
     const removeIdem = (itemId) => {
 
-        let productoAborrar = productoCarrito.find (elemento => elemento.id === itemId)
-        console.log(productoAborrar)
-    
+        productoCarrito.find (elemento => elemento.id === itemId)
         let borrarDelArray = productoCarrito.filter(elemento => elemento.id !== itemId)
         console.log(borrarDelArray)
         setproductoCarrito(borrarDelArray)
@@ -57,12 +69,11 @@ const CartContextProvider = ({ children }) => {
 
     const clear = () => {
         setproductoCarrito([])
+        // setStockproduct(0)
     }
 
-    
-    
     return (
-        <CartContext.Provider value={{productoCarrito,clear, removeIdem,total,isInCart,countProducts, setproductoCarrito, addItem}}>
+        <CartContext.Provider value={{productoCarrito,clear ,removeIdem,total,isInCart,countProducts, addItem}}>
             {children}
         </CartContext.Provider>
     )
