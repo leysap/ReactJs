@@ -7,13 +7,13 @@ const CartContextProvider = ({ children }) => {
 
     const [productoCarrito, setproductoCarrito] = useState([]) 
   
+    //FUNCIÓN PARA AGREGAR AL CARRITO TOMANDO EN CUENTA: SI EL PRODUCTO INGRESA POR PRIMERA VEZ O NO (RECONOCIÉNDOLO POR SU ID), EN ESE CASO, SE SUMA LA CANTIDAD INGRESADA CON EL EXISTENTE EN EL CARRITO, SE MULTIPLICA EL PRECIO POR LA CANTIDAD , Y VA RESTANDO EL STOCK. LUEGO SE HACE UN FILTRO ELIMINANDO ESE PRODUCTO REPETIDO Y SETEANDO EL PRODUCTO ACTUALIZADO AL HOOK-ARRAY//
     const addItem = (item,quantity) => {
 
         const flag = isInCart(item.id)
 
         if(flag){
             let productoRepetido = productoCarrito.find (elemento => elemento.id === item.id);
-            console.log(productoRepetido.stock)
             
             if(quantity <= productoRepetido.stock){
                 productoRepetido.stock = productoRepetido.stock -= quantity
@@ -24,7 +24,7 @@ const CartContextProvider = ({ children }) => {
                 window.alert(`Se agrego al carrito ${quantity}`)
 
             }else{
-                window.alert(`INGRESASTE MAS PRODUCTOS DEL PERMITIDO`)
+                window.alert(`INGRESASTE MAS DE LO PERMITIDO`)
             }
 
         }else {
@@ -38,15 +38,16 @@ const CartContextProvider = ({ children }) => {
         }
     }   
     
+    //FUNCIÓN PARA ELIMINAR UN PRODUCTO, RECONOCIÉNDOLO POR SU ID, Y BORRÁNDOLO DEL CARRITO//
     const removeIdem = (itemId) => {
 
         productoCarrito.find (elemento => elemento.id === itemId)
         let borrarDelArray = productoCarrito.filter(elemento => elemento.id !== itemId)
-        console.log(borrarDelArray)
         setproductoCarrito(borrarDelArray)
         
     } 
 
+    //FUNCIÓN PARA CONTAR LA CANTIDAD DE PRODUCTOS AGREGADOS EN EL CARRITO//
     const countProducts = () => {
         let count= 0
         productoCarrito.forEach(prod => {
@@ -55,6 +56,7 @@ const CartContextProvider = ({ children }) => {
         return count
     }
     
+    //FUNCIÓN PARA SUMAR LOS PRECIOS DE LOS PRODUCTOS AGREGADOS AL CARRITO Y SUMARLOS PARA SACAR SU TOTAL//
     const total = () => {
 
        let total= productoCarrito.reduce((a,i)=>a+i.price,0)
@@ -62,14 +64,15 @@ const CartContextProvider = ({ children }) => {
        
     }
 
+    //FUNCIÓN PARA RECONOCER POR SU ID, SI EL PRODUCTO INGRESADO EXISTE EN EL CARRITO O NO //
     const isInCart = (id) => {
         return productoCarrito.some(p=> p.id === id)
        
     }
 
+    //FUNCIÓN PARA BORRAR TODO LO QUE HAY DENTRO DEL ARRAY-HOOK //
     const clear = () => {
         setproductoCarrito([])
-        // setStockproduct(0)
     }
 
     return (
