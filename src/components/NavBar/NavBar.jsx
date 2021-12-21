@@ -3,8 +3,9 @@ import "./style.scss"
 import CartWidget from '../CartWidget'
 import { Link } from 'react-router-dom'
 import { useEffect, useState, useContext } from 'react'
-import { getCategories } from '../../productos'
 import { CartContext } from '../Context/CartContext'
+import { db } from "../../services/firebase/firebase"
+import { collection, getDocs } from 'firebase/firestore'
 
 
 const NavBar = () => {
@@ -15,15 +16,20 @@ const NavBar = () => {
 
     useEffect(() => {
 
-        getCategories().then(categories => {
-            setCategories(categories)
+        getDocs(collection(db, "categories")).then((querySnapshot) => {
 
-        })
-            .catch(err => {
-                console.log(err)
+            const category = querySnapshot.docs.map(doc => {
+
+                return { id: doc.id, ...doc.data()}
             })
+            setCategories(category)
+
+        }).catch((error) => {
+            console.log("Error searching items", error)
+        })
 
     }, [])
+
 
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light">

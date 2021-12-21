@@ -25,7 +25,8 @@ const productos = [
 const categories = [
   {id: "remeras" , description: "Remeras"},
   {id:"pantalones", description: "Pantalones"},
-  {id:"abrigos", description: "Abrigos"}
+  {id:"abrigos", description: "Abrigos"},
+  {id:"shorts" , description: "Shorts"}
 ]
 
 export const getCategories = () => {
