@@ -23,7 +23,7 @@ const productos = [
 ]
 
 const categories = [
-  {id: "remeras" , description: "Remeras"},
+  {id:"remeras" , description: "Remeras"},
   {id:"pantalones", description: "Pantalones"},
   {id:"abrigos", description: "Abrigos"},
   {id:"shorts" , description: "Shorts"}
