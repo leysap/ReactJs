@@ -1,21 +1,20 @@
 import React from 'react'
 import { CartContext } from '../Context/CartContext'
-import { useContext } from 'react'
-import { Link } from 'react-router-dom'
+import { useContext} from 'react'
+import { Link} from 'react-router-dom'
 import "./style.scss"
 
 
 const Carrito = () => {
-    const { productoCarrito, clear, removeIdem, total } = useContext(CartContext)
-
-    console.log(productoCarrito)
+    const { productoCarrito,clear, removeIdem, total } = useContext(CartContext)
+    
 
     return (
         <div className="container">
             {productoCarrito.length === 0 ?
                 <div>
                     <h1 className='tituloCarrito'>EL CARRITO ESTA VACÍO</h1><br />
-                    <Link  className="boton d-grid gap-2 col-6 mx-auto  btn btn-secondary" to="/">VOLVER AL HOME </Link>
+                    <Link className="boton d-grid gap-2 col-6 mx-auto  btn btn-secondary" to="/">VOLVER AL HOME </Link>
                 </div> :
                 <div>
                     <h1>CARRITO</h1>
@@ -47,6 +46,7 @@ const Carrito = () => {
                             </tr>
                         </tfoot>
                     </table>
+                    <Link to="/form" className='align-items-center btn btn-primary'>TERMINAR LA COMPRA</Link>
                 </div>
             }
         </div>
