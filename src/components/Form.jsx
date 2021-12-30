@@ -62,17 +62,15 @@ const Form = () => {
             addDoc(collection(db, "orders"), objetoProducto).then(({ id }) => {
                 batch.commit().then(() => {
                     console.log(`el num de orden es ${id}`)
+                    setproductoCarrito([])
+                    window.localStorage.removeItem('carrito')
                 })
             })
                 .catch((error) => {
                     console.error(error);
                 })
                 .finally(() => {
-                    setTimeout(() => {
-                        navigate('/dashboard');
-                        setproductoCarrito([])
-                        window.localStorage.removeItem('carrito')
-                    }, 2000);
+                    navigate('/dashboard');
                 });
         }
     }
@@ -80,7 +78,7 @@ const Form = () => {
         <div>
             {!loadingOrder ?
                 (<div className='container'>
-                    <h2>COMPLETA EL FORMULARIO</h2>
+                    <h2>COMPLETA CON TUS DATOS</h2>
                     <form onSubmit={enviar} >
                         <div className="mb-3">
                             <label className="form-label">Name</label>
@@ -132,7 +130,7 @@ const Form = () => {
                 </div>) : (
                     <div className='container'>
                         <h1>
-                            Estamos generando su orden👌.Usted será redirigido al
+                            Estamos generando su orden👌.Será redirigido al
                             Dashboard.
                         </h1>
                     </div>

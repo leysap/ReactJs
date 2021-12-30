@@ -42,7 +42,7 @@ const Dashboard = () => {
                             <TicketsMessage key={ord.id} ord={ord} />
                         ))}
                         <div className='container'>
-                        <Link to="/" className="btn btn-primary" >Volver al Home</Link>
+                            <Link to="/" className="btn btn-primary" >Volver al Home</Link>
                         </div>
                     </>
                 )}
