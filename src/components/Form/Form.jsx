@@ -1,10 +1,10 @@
 import React from 'react'
-import { db } from "../services/firebase/firebase"
+import { db } from "../../services/firebase/firebase"
 import { collection, addDoc, doc, writeBatch, Timestamp, getDoc } from 'firebase/firestore'
 import { useState } from 'react'
 import { useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { CartContext } from './Context/CartContext'
+import { CartContext } from '../Context/CartContext'
 
 const Form = () => {
     const { productoCarrito, setproductoCarrito, total } = useContext(CartContext)
@@ -13,7 +13,7 @@ const Form = () => {
     const [datos, setDatos] = useState({
         name: "",
         phone: "",
-        addres: "",
+        address: "",
         email: ""
     })
 
@@ -24,6 +24,24 @@ const Form = () => {
             [event.target.name]: event.target.value
 
         })
+    }
+    
+    const arrayNumeros = ["0","1","2","3","4","5","6","7","8","9"]
+    const handleOnKeyDown = (e) => {
+        const isNumber = arrayNumeros.some(v=> v === e.key)
+
+        if (isNumber) {
+            e.preventDefault()
+        } 
+    }
+    const arrayLetters = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","ñ","o","p","q","r","s","t","u","v","w","x","y","z",".",",", "*", "/"]
+
+    const handleOnKey = (e) => {
+        const isLetter = arrayLetters.some(v=> v === e.key.toLowerCase())
+
+        if (isLetter) {
+            e.preventDefault()
+        } 
     }
 
     const mapProducts = productoCarrito.map((e) => {
@@ -36,7 +54,7 @@ const Form = () => {
         setLoadingOrder(true);
 
         const objetoProducto = {
-            buyer: { name: datos.name, phone: datos.phone, email: datos.email, addres: datos.addres },
+            buyer: { name: datos.name, phone: datos.phone, email: datos.email, address: datos.address },
             items: mapProducts,
             date: Timestamp.fromDate(new Date()),
             total: total()
@@ -54,14 +72,12 @@ const Form = () => {
                 } else {
                     outOfStock.push({ id: documentSnapshot.id, ...documentSnapshot.data() })
                 }
-
             })
         })
 
         if (outOfStock.length === 0) {
-            addDoc(collection(db, "orders"), objetoProducto).then(({ id }) => {
+            addDoc(collection(db, "orders"), objetoProducto).then(() => {
                 batch.commit().then(() => {
-                    console.log(`el num de orden es ${id}`)
                     setproductoCarrito([])
                     window.localStorage.removeItem('carrito')
                 })
@@ -81,11 +97,12 @@ const Form = () => {
                     <h2>COMPLETA CON TUS DATOS</h2>
                     <form onSubmit={enviar} >
                         <div className="mb-3">
-                            <label className="form-label">Name</label>
+                            <label className="form-label">Full Name</label>
                             <input
                                 type="text"
                                 onChange={handleForm}
                                 className="form-control"
+                                onKeyDown={handleOnKeyDown}
                                 name="name" />
                         </div>
                         <div className="mb-3">
@@ -94,15 +111,16 @@ const Form = () => {
                                 type="text"
                                 className="form-control"
                                 onChange={handleForm}
-                                name="phone" />
+                                name="phone" 
+                                onKeyDown={handleOnKey}/>
                         </div>
                         <div className="mb-3">
-                            <label className="form-label">Addres</label>
+                            <label className="form-label">Address</label>
                             <input
                                 type="text"
                                 className="form-control"
                                 onChange={handleForm}
-                                name="addres" />
+                                name="address" />
                         </div>
                         <div className="mb-3">
                             <label className="form-label">Email address</label>
@@ -121,7 +139,7 @@ const Form = () => {
                                 productoCarrito?.length === 0 ||
                                 datos.name === '' ||
                                 datos.email === '' ||
-                                datos.addres === '' ||
+                                datos.address === '' ||
                                 datos.phone === ''
                             }
                             type='submit'

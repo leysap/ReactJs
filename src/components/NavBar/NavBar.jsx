@@ -4,9 +4,7 @@ import CartWidget from '../CartWidget'
 import { Link } from 'react-router-dom'
 import { useEffect, useState, useContext } from 'react'
 import { CartContext } from '../Context/CartContext'
-import { db } from "../../services/firebase/firebase"
-import { collection, getDocs } from 'firebase/firestore'
-
+import { getCategories} from "../../services/firebase/firebase"
 
 const NavBar = () => {
 
@@ -16,12 +14,8 @@ const NavBar = () => {
 
     useEffect(() => {
 
-        getDocs(collection(db, "categories")).then((querySnapshot) => {
+        getCategories("categories").then(category => {
 
-            const category = querySnapshot.docs.map(doc => {
-
-                return { id: doc.id, ...doc.data()}
-            })
             setCategories(category)
 
         }).catch((error) => {

@@ -2,12 +2,12 @@ import NavBar from "./components/NavBar/NavBar.jsx";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer.jsx"
-import ItemDetailContainer from "./components/ItemDetailContainer.jsx";
+import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer.jsx";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Cart from "./components/Cart/Cart.jsx";
 import CartContextProvider from "./components/Context/CartContext.js";
 import Dashboard from "./components/Dashboard.jsx";
-import Form from "./components/Form.jsx";
+import Form from "./components/Form/Form.jsx";
 
 function App() {
   return (

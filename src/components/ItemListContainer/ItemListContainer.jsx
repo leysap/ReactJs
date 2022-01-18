@@ -2,10 +2,9 @@ import React from 'react'
 import ItemList from '../ItemList/ItemList'
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router'
-import { Loader } from '../Loader'
+import { Loader } from '../Loader/Loader'
 import "./style.scss"
-import { db } from "../../services/firebase/firebase"
-import { collection, getDocs , query, where} from 'firebase/firestore'
+import { getProducts } from "../../services/firebase/firebase"
 
 const ItemListContainer = ({ titulo }) => {
 
@@ -14,31 +13,15 @@ const ItemListContainer = ({ titulo }) => {
 
     useEffect(() => {
 
-        if(!categoryId){
+        getProducts("category" , "==", categoryId).then(products => {
 
-            getDocs(collection(db, "items")).then((querySnapshot) => {
+            setProduct(products)
 
-                const products = querySnapshot.docs.map(doc => {
+        }).catch(error => {
 
-                    return { id: doc.id, ...doc.data()}
-                })
-                setProduct(products)
-            }).catch((error) => {
-                console.log("Error searching items", error)
-            })
-            
-        }else {
-            getDocs(query(collection(db, "items"), where("category", "==", categoryId))).then((querySnapshot) => {
+            console.log(error)
+        })
 
-                const products = querySnapshot.docs.map(doc => {
-
-                    return { id: doc.id, ...doc.data()}
-                })
-                setProduct(products)
-            }).catch((error) => {
-                console.log("Error searching items", error)
-            })
-        }
 
         return (() => {
             setProduct([])
