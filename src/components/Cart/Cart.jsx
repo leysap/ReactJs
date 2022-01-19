@@ -5,10 +5,9 @@ import { Link} from 'react-router-dom'
 import "./style.scss"
 
 
-const Carrito = () => {
+const Cart = () => {
     const { productoCarrito,clear, removeIdem, total } = useContext(CartContext)
     
-
     return (
         <div className="container">
             {productoCarrito.length === 0 ?
@@ -53,4 +52,4 @@ const Carrito = () => {
     )
 }
 
-export default Carrito
+export default Cart

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { collection, getDocs, orderBy, query } from 'firebase/firestore'
-import { db } from '../services/firebase/firebase'
-import TicketsMessage from './TicketsMessage/TicketsMessage'
+import { db } from '../../services/firebase/firebase'
+import TicketsMessage from '../TicketsMessage/TicketsMessage'
 
 const Dashboard = () => {
     const [order, setOrder] = useState([]);

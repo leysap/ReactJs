@@ -1,6 +1,6 @@
 import React from 'react'
 import "./style.scss"
-import CartWidget from '../CartWidget'
+import CartWidget from '../CartWidget/CartWidget'
 import { Link } from 'react-router-dom'
 import { useEffect, useState, useContext } from 'react'
 import { CartContext } from '../Context/CartContext'

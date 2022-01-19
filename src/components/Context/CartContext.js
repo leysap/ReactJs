@@ -1,6 +1,7 @@
 import React from "react"
 import  {useState}  from "react"
 
+
 export const CartContext = React.createContext()
 
 const CartContextProvider = ({ children }) => {
@@ -28,6 +29,7 @@ const CartContextProvider = ({ children }) => {
 
                 }else{
                     window.alert(`INGRESASTE MAS DE LO PERMITIDO`)
+                    
                 }
 
             }else {

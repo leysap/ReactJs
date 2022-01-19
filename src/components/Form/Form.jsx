@@ -83,7 +83,7 @@ const Form = () => {
                 })
             })
                 .catch((error) => {
-                    console.error(error);
+                    console.log(error);
                 })
                 .finally(() => {
                     navigate('/dashboard');
@@ -148,8 +148,7 @@ const Form = () => {
                 </div>) : (
                     <div className='container'>
                         <h1>
-                            Estamos generando su orden👌.Será redirigido al
-                            Dashboard.
+                            Estamos generando su orden 👌. Espere un momento... 
                         </h1>
                     </div>
                 )}

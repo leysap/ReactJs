@@ -6,7 +6,7 @@ import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailCont
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Cart from "./components/Cart/Cart.jsx";
 import CartContextProvider from "./components/Context/CartContext.js";
-import Dashboard from "./components/Dashboard.jsx";
+import Dashboard from "./components/Dashboard/Dashboard.jsx";
 import Form from "./components/Form/Form.jsx";
 
 function App() {
