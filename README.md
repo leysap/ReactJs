@@ -66,15 +66,15 @@ Se armó las siguientes:
 
 ## ¿ Que datos me genera la orden?
 
-- buyer: es un objeto con sus propiedades: address, name, phone, email y date (estos datos se completan al llenar el formulario).
-- items: es un array de objetos (los productos seleccionados por el cliente). Cada objeto se guarda con sus propiedades: id: string(autogenerado por firestore), name: string, price: number, quantity: number, stock: number. 
+- buyer: es un objeto con sus propiedades: {address, name, phone, email , date} (estos datos se completan al llenar el formulario).
+- items: es un array de objetos (los productos seleccionados por el cliente). Cada objeto se guarda con sus propiedades: [{id: string(autogenerado por firestore), name: string, price: number, quantity: number, stock: number }]
 - total: es el monto total a pagar.
 
 Una vez subido todos los datos tuve que instalar firebase a mi aplicación web para realizar la integración. De firebase obtuve las "api Keys" para acceder al servicio.
 
 ### firebase.js
 
-La inicializacíon de firebase se realizo en un archivo aparte para tener un código mas ordenado y prolijo.
+La inicializacíon de firebase se realizó en un archivo aparte para tener un código mas ordenado y prolijo.
 Se encuentra en la carpeta "service/firebase/firebase.js".
 En este archivo tambien se encuentran las credenciales.
 La inicializacón de la aplicación y para acceder a mi base de datos en firestore ,se las guarda en una constante ( siguiendo los pasos de la documentación).
@@ -103,7 +103,7 @@ En src, se encuentra la carpeta "components", en éste se divide en diferentes c
 - **Navbar**: es el header de mi ecommerce. Se utilizó react-router para navegar por categorias y ir al home de mi página (al hacer click en el logo). Se llamó a la función getCategories() ubicado en firebase.js, para traer de mi base de datos las categorias. Dentro de éste además se encuentra el componente "CartWidget".  
 - **CartWidget**: devuelve un Link (que me redirige al componente Cart(el carrito)) con una imagen y además la cantidad de productos agregados. Este mismo es solo visible en mi NavBar solo cuando se agrega un producto al carrito, de lo contrario, no aparece visible.
 - **Loader**: componente que me duevuelve el diseño de mi loader-loading al esperar que se carguen mis productos. Se utilizó bootstrap para el diseño de mi spinner.
-- **CartContext**: En este componente se creó el Context. Éste en React se utiliza para crear variables globales que se podrá compartir con otros componentes en mi aplicación. El Provider no es otra que el componente que proporciona el valor, mientras que el hook useContext es el sustituto del componente Consumer.
+- **CartContext**: En este componente se creó el Context. Éste en React se utiliza para crear variables globales que se podrá compartir con otros componentes en mi aplicación. El Provider es el componente que proporciona el valor, mientras que el hook useContext es el sustituto del componente Consumer.
 Se crearon las distintas funciones:
 - addItem(item, quantity): con dos parámetros. Función para agregar al carrito tomando en cuenta si el producto ingresa por primera vez o no (reconociéndolo por su ID). 
 En el caso que ingresa por primera vez, se crea un nuevo objeto con las propiedades que quiero guardar en mi carrito de compras (product = {id: item.id, name: item.name , description: item.description, price: item.price,stock: item.stock , quantity: quantity}).
@@ -120,4 +120,4 @@ En el caso que ingresa por segunda vez, se suma la cantidad (del producto) ingre
 - **Form**:
 
 
-Este hook es el que utilizaremos para reemplazar los métodos del ciclo de vida de los componentes de clase: ComponentDidMount, ComponentDidUpdate, ComponentWillUnmount. El hook useEffect es el equivalente a estos tres métodos combinados. Este hook se ejecuta siempre después del primer renderizado y después de cada actualización y, por lo tanto, se utiliza para ejecutar funciones después de hacer render. useEffect recibe una función que puede realizar todo tipo de operación incluyendo efectos secundarios. Un ejemplo típico de una operación que podemos querer realizar es una llamada a un servicio.
+<!-- Este hook es el que utilizaremos para reemplazar los métodos del ciclo de vida de los componentes de clase: ComponentDidMount, ComponentDidUpdate, ComponentWillUnmount. El hook useEffect es el equivalente a estos tres métodos combinados. Este hook se ejecuta siempre después del primer renderizado y después de cada actualización y, por lo tanto, se utiliza para ejecutar funciones después de hacer render. useEffect recibe una función que puede realizar todo tipo de operación incluyendo efectos secundarios. Un ejemplo típico de una operación que podemos querer realizar es una llamada a un servicio. -->
