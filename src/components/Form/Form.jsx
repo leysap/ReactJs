@@ -96,7 +96,7 @@ const Form = () => {
                     <h2>COMPLETA CON TUS DATOS</h2>
                     <form onSubmit={enviar} >
                         <div className="mb-3">
-                            <label className="form-label">Full Name</label>
+                            <label className="form-label">Nombre Completo</label>
                             <input
                                 type="text"
                                 onChange={handleForm}
@@ -105,7 +105,7 @@ const Form = () => {
                                 name="name" />
                         </div>
                         <div className="mb-3">
-                            <label className="form-label">Phone</label>
+                            <label className="form-label">Teléfono</label>
                             <input
                                 type="text"
                                 className="form-control"
@@ -114,7 +114,7 @@ const Form = () => {
                                 onKeyDown={handleOnKey}/>
                         </div>
                         <div className="mb-3">
-                            <label className="form-label">Address</label>
+                            <label className="form-label">Dirección</label>
                             <input
                                 type="text"
                                 className="form-control"
@@ -122,7 +122,7 @@ const Form = () => {
                                 name="address" />
                         </div>
                         <div className="mb-3">
-                            <label className="form-label">Email address</label>
+                            <label className="form-label">Email</label>
                             <input
                                 type="email"
                                 onChange={handleForm}
@@ -131,7 +131,7 @@ const Form = () => {
                                 aria-describedby="emailHelp"
                                 name="email"
                             />
-                            <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
+                            <div id="emailHelp" className="form-text">No compartiremos tu email con nadie más.</div>
                         </div>
                         <button
                             disabled={
