@@ -48,7 +48,6 @@ const Form = () => {
         return { id: e.id, name: e.name, price: e.price, quantity: e.quantity, stock: e.stock }
     })
 
-
     const enviar = (e) => {
         e.preventDefault()
         setLoadingOrder(true);

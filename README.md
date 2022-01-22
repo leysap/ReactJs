@@ -20,7 +20,7 @@ Con npm start, podrás iniciar la aplicación. Tarda unos minutos en abrir.
 Con control + C , podrás finalizar la ejecución del programa.
 
 
-## ¿Qué lenguajes se utilizaron?
+## ¿Qué se utilizó?
 
 - HTML
 - CSS - SASS
@@ -33,13 +33,13 @@ Con control + C , podrás finalizar la ejecución del programa.
 - Se importó Bootstrap v5.1.3. Éste es una librería (CSS) multiplataforma o conjunto de herramientas de código abierto para diseño de sitios y aplicaciones web. Contiene plantillas de diseño con tipografía, formularios, botones, cuadros, menús de navegación y otros elementos de diseño basado en HTML y CSS, así como extensiones de JavaScript adicionales.
 Se lo utilizó para el diseño de mi página, ya sea en el header(encabezado), para algunos de mis botones, en el diseño de mi Loader, entre otros. Me aseguré que la página sea responsive en los distintos dispositivos.
 
-- SASS para el estilo de los distintos componentes. De acuerdo al componente , se encuentra ligado su style.scss
+- SASS para el estilo de los distintos componentes. De acuerdo al componente , se encuentra ligado su style.scss.
 
-- Utilicé Font Awesome, es un framework de iconos vectoriales y estilos css. Es utilizado para sustituir imágenes de iconos comunes por gráficos vectoriales convertidos en fuentes. Posee mas de 400 iconos transformadas en fuentes. Lo utilicé en los botones de mi ItemCount.
+- Utilicé Font Awesome, es un framework de iconos vectoriales y estilos css. Es utilizado para sustituir imágenes de iconos comunes por gráficos vectoriales convertidos en fuentes. Posee mas de 400 iconos transformadas en fuentes. Lo utilicé en los botones de mi componente ItemCount.
 
 ### public 
 
-En public se encuentran distintas carpetas con fotos de mis productos para mi ecommerce. Incluyendo el logo. 
+En public se encuentran distintas carpetas con fotos de mis productos para mi ecommerce.
 Además tambien se encuentra el index.html, donde modifique el titulo de mi página, agregando el logo, y asocie con un script el framework Font Awesome.
 
 ### App.js y Routing
@@ -47,7 +47,7 @@ Además tambien se encuentra el index.html, donde modifique el titulo de mi pág
 Se encuentra instalado  react-router-dom versión 6.1
 En App.js se encuentran los siguientes ROUTERS:
 - El ItemListContainer, tiene 2 parámetros: "/" (router principal), me redirige al Home de mi página(el cual me renderiza todos los productos) y "/category/categoryId" ( es el router de categorias de productos específicos), me renderiza los productos de la categoria seleccionada.
-- El ItemDetailContainer tiene como parámetro: "/item/id" (es el router de detalle del producto). Me redirige a ItemDetail (para ver el detalle del producto)
+- El ItemDetailContainer tiene como parámetro: "/item/id" (es el router de detalle del producto). Me redirige a ItemDetail (para ver el detalle del producto).
 - El Cart tiene como parámetro: "/cart" lo cual me redirige al Carrito de compras (muestro la lista de productos elegidos)
 - El Dashboard tiene como parámetro: "/dashboard" . Éste me redirige a su componente propiamente dicho(Dashboard).
 - El Form tiene como parámetro: "/form" el cual te redirige a un formulario de datos del cliente.
@@ -66,9 +66,9 @@ Se armó las siguientes:
 
 ## ¿ Que datos me genera la orden?
 
-- buyer: es un objeto con sus propiedades: {address, name, phone, email , date} (estos datos se completan al llenar el formulario).
-- items: es un array de objetos (los productos seleccionados por el cliente). Cada objeto se guarda con sus propiedades: [{id: string(autogenerado por firestore), name: string, price: number, quantity: number, stock: number }]
-- total: es el monto total a pagar.
+1. buyer: es un objeto con sus propiedades: {address, name, phone, email , date} (estos datos se completan al llenar el formulario).
+2. items: es un array de objetos (los productos seleccionados por el cliente). Cada objeto se guarda con sus propiedades: [{id: string(autogenerado por firestore), name: string, price: number, quantity: number, stock: number }]
+3. total: es el monto total a pagar.
 
 Una vez subido todos los datos tuve que instalar firebase a mi aplicación web para realizar la integración. De firebase obtuve las "api Keys" para acceder al servicio.
 
@@ -103,21 +103,24 @@ En src, se encuentra la carpeta "components", en éste se divide en diferentes c
 - **Navbar**: es el header de mi ecommerce. Se utilizó react-router para navegar por categorias y ir al home de mi página (al hacer click en el logo). Se llamó a la función getCategories() ubicado en firebase.js, para traer de mi base de datos las categorias. Dentro de éste además se encuentra el componente "CartWidget".  
 - **CartWidget**: devuelve un Link (que me redirige al componente Cart(el carrito)) con una imagen y además la cantidad de productos agregados. Este mismo es solo visible en mi NavBar solo cuando se agrega un producto al carrito, de lo contrario, no aparece visible.
 - **Loader**: componente que me duevuelve el diseño de mi loader-loading al esperar que se carguen mis productos. Se utilizó bootstrap para el diseño de mi spinner.
-- **CartContext**: En este componente se creó el Context. Éste en React se utiliza para crear variables globales que se podrá compartir con otros componentes en mi aplicación. El Provider es el componente que proporciona el valor, mientras que el hook useContext es el sustituto del componente Consumer.
+- **CartContext**: en este componente se creó el Context. Éste en React se utiliza para crear variables globales que se podrá compartir con otros componentes en mi aplicación. El Provider es el componente que proporciona el valor, mientras que el hook useContext es el sustituto del componente Consumer.
 Se crearon las distintas funciones:
-- addItem(item, quantity): con dos parámetros. Función para agregar al carrito tomando en cuenta si el producto ingresa por primera vez o no (reconociéndolo por su ID). 
+addItem(): con dos parámetros. Función para agregar al carrito tomando en cuenta si el producto ingresa por primera vez o no (reconociéndolo por su ID). 
 En el caso que ingresa por primera vez, se crea un nuevo objeto con las propiedades que quiero guardar en mi carrito de compras (product = {id: item.id, name: item.name , description: item.description, price: item.price,stock: item.stock , quantity: quantity}).
 Como extra, también utilicé localStorage.
 En el caso que ingresa por segunda vez, se suma la cantidad (del producto) ingresada con el existente en el carrito, se multiplica el precio por la cantidad y va restando el stock. Luego se hace un filtro eliminando ese producto repetido y seteando el producto actualizado al hook-array.
-- removeIdem(): función para eliminar un producto, reconociéndolo por su ID, y borrándolo del carrito.
-- countProducts(): función para contar la cantidad de productos agregados en el carrito.
-- total(): función para sumar los precios de los productos agregados al carrito y retornarme su total. 
-- isInCart(id): con un parámetro. Función para reconocer por su ID, si el producto ingresado existe en el carrito o no. 
-- clear(): función para borrar todo lo que hay dentro del hook. Y además me borra todo lo que tenga en mi localStorage.
-- **Cart**: 
-- **TicketsMessage**:
-- **Dashboard**:
-- **Form**:
+> removeIdem(): función para eliminar un producto, reconociéndolo por su ID, y borrándolo del carrito.
+> countProducts(): función para contar la cantidad de productos agregados en el carrito.
+> total(): función para sumar los precios de los productos agregados al carrito y retornarme su total. 
+> isInCart(): con un parámetro. Función para reconocer por su ID, si el producto ingresado existe en el carrito o no. 
+> clear(): función para borrar todo lo que hay dentro del hook. Y además me borra todo lo que tenga en mi localStorage.
+- **Cart**: este componente seria el "carrito", el cual se puede visualizar los productos agregados, en una tabla, con la opcion de poder eliminar algun producto en particular o vaciar totalmente el carrito.
+- **Form**: se encuentra el formulario que debe completar el cliente. Tambien se encuentran sus validaciones y de realizar la orden. Al enviar se redirige al componente Dashboard. 
+- **Dashboard**: en él se visualizan todos los "tickets".
+- **TicketsMessage**: contiene el "diseño" de cada uno de los tickets.
 
+### Autor
 
-<!-- Este hook es el que utilizaremos para reemplazar los métodos del ciclo de vida de los componentes de clase: ComponentDidMount, ComponentDidUpdate, ComponentWillUnmount. El hook useEffect es el equivalente a estos tres métodos combinados. Este hook se ejecuta siempre después del primer renderizado y después de cada actualización y, por lo tanto, se utiliza para ejecutar funciones después de hacer render. useEffect recibe una función que puede realizar todo tipo de operación incluyendo efectos secundarios. Un ejemplo típico de una operación que podemos querer realizar es una llamada a un servicio. -->
+Leysa Melina Pozo, programadora autodidacta, 26 años.
+Córdoba, Argentina.
+Este es un link [a mi LinkedIn](www.linkedin.com/in/leysa-pozo) 

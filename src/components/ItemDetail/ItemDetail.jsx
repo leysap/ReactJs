@@ -29,7 +29,7 @@ const ItemDetail = ({ item }) => {
                 <h4 className="card-title text-center">{item?.name}</h4>
                 <p className="card-text">Precio: ${item?.price}</p>
                 <p className="description-product">{item?.description}</p>
-                <p className="card-text">{item?.stock}</p>
+                <p className="card-text">Stock disponible: {item?.stock}</p>
                 {cantidad >= 1 ? <Link to="/cart" className="finish-button btn btn-outline-primary ">Finalizar Compra</Link> : <ItemCount stock={ item.stock } initial="0" onAdd={onAdd}/>}
             </div>
         </div>
