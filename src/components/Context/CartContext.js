@@ -28,7 +28,7 @@ const CartContextProvider = ({ children }) => {
                     setproductoCarrito([...cartSinRepetido, productoRepetido]);
 
                 }else{
-                    window.alert(`INGRESASTE MAS DE LO PERMITIDO`)
+                    return false
                     
                 }
 

@@ -30,12 +30,12 @@ Con control + C , podrás finalizar la ejecución del programa.
 
 ## Frameworks
 
-- Se importó Bootstrap v5.1.3. Éste es una librería (CSS) multiplataforma o conjunto de herramientas de código abierto para diseño de sitios y aplicaciones web. Contiene plantillas de diseño con tipografía, formularios, botones, cuadros, menús de navegación y otros elementos de diseño basado en HTML y CSS, así como extensiones de JavaScript adicionales.
+- Se importó Bootstrap v5.1.3. 
 Se lo utilizó para el diseño de mi página, ya sea en el header(encabezado), para algunos de mis botones, en el diseño de mi Loader, entre otros. Me aseguré que la página sea responsive en los distintos dispositivos.
 
 - SASS para el estilo de los distintos componentes. De acuerdo al componente , se encuentra ligado su style.scss.
 
-- Utilicé Font Awesome, es un framework de iconos vectoriales y estilos css. Es utilizado para sustituir imágenes de iconos comunes por gráficos vectoriales convertidos en fuentes. Posee mas de 400 iconos transformadas en fuentes. Lo utilicé en los botones de mi componente ItemCount.
+- Utilicé Font Awesome, framework de iconos vectoriales y estilos css. Lo utilicé en los botones de mi componente ItemCount.
 
 ## public 
 
@@ -70,14 +70,12 @@ Se armó las siguientes:
 2. items: es un array de objetos (los productos seleccionados por el cliente). Cada objeto se guarda con sus propiedades: [{id: string(autogenerado por firestore), name: string, price: number, quantity: number, stock: number }]
 3. total: es el monto total a pagar.
 
-Una vez subido todos los datos tuve que instalar firebase a mi aplicación web para realizar la integración. De firebase obtuve las "api Keys" para acceder al servicio.
+Una vez subido todos los datos tuve que instalar firebase a mi aplicación web para realizar la integración. De firebase obtuve las "api Keys".
 
 ## firebase.js
 
-La inicializacíon de firebase se realizó en un archivo aparte para tener un código mas ordenado y prolijo.
 Se encuentra en la carpeta "service/firebase/firebase.js".
-En este archivo tambien se encuentran las credenciales.
-La inicializacón de la aplicación y para acceder a mi base de datos en firestore ,se las guarda en una constante ( siguiendo los pasos de la documentación).
+La inicializacíon de firebase se realizó en un archivo aparte para tener un código mas ordenado y prolijo.
 
 Para poder consultar los documentos, en este mismo archivo se armo dos funciones:
 - getProducts(): me retorna una promesa, es una función para traerme todos los productos y también incluye un filtro de categorias. Función que se utiliza en mi componente ItemListContainer.
@@ -86,7 +84,6 @@ Estas dos funciones se armaron para optimizar el código.
 
 ## Variables de entorno (.env)
 
-Las variables de entorno son variables que yo puedo acceder a cualquier parte de mi aplicación gracias a React o en otros casos gracias a una libreria que me permiten leer estas variables. Se utilizan para evitar subir a github información sensible. 
 El mismo se encuentra ignorado (en .gitignore) para cuando se tenga que pushear el proyecto a github.
 En este archivo cree variables con las credenciales de firebase.
 
@@ -108,7 +105,7 @@ Se crearon las distintas funciones:
 addItem(): con dos parámetros. Función para agregar al carrito tomando en cuenta si el producto ingresa por primera vez o no (reconociéndolo por su ID). 
 En el caso que ingresa por primera vez, se crea un nuevo objeto con las propiedades que quiero guardar en mi carrito de compras (product = {id: item.id, name: item.name , description: item.description, price: item.price,stock: item.stock , quantity: quantity}).
 Como extra, también utilicé localStorage.
-En el caso que ingresa por segunda vez, se suma la cantidad (del producto) ingresada con el existente en el carrito, se multiplica el precio por la cantidad y va restando el stock. Luego se hace un filtro eliminando ese producto repetido y seteando el producto actualizado al hook-array.
+En el caso que ingresa por segunda vez, se suma la cantidad (del producto) ingresada con el existente en el carrito. Se hace un filtro eliminando ese producto repetido y seteando el producto actualizado al hook-array.
 1. removeIdem(): función para eliminar un producto, reconociéndolo por su ID, y borrándolo del carrito.
 2. countProducts(): función para contar la cantidad de productos agregados en el carrito.
 3. total(): función para sumar los precios de los productos agregados al carrito y retornarme su total. 
