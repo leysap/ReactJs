@@ -109,11 +109,11 @@ addItem(): con dos parámetros. Función para agregar al carrito tomando en cuen
 En el caso que ingresa por primera vez, se crea un nuevo objeto con las propiedades que quiero guardar en mi carrito de compras (product = {id: item.id, name: item.name , description: item.description, price: item.price,stock: item.stock , quantity: quantity}).
 Como extra, también utilicé localStorage.
 En el caso que ingresa por segunda vez, se suma la cantidad (del producto) ingresada con el existente en el carrito, se multiplica el precio por la cantidad y va restando el stock. Luego se hace un filtro eliminando ese producto repetido y seteando el producto actualizado al hook-array.
-> removeIdem(): función para eliminar un producto, reconociéndolo por su ID, y borrándolo del carrito.
-> countProducts(): función para contar la cantidad de productos agregados en el carrito.
-> total(): función para sumar los precios de los productos agregados al carrito y retornarme su total. 
-> isInCart(): con un parámetro. Función para reconocer por su ID, si el producto ingresado existe en el carrito o no. 
-> clear(): función para borrar todo lo que hay dentro del hook. Y además me borra todo lo que tenga en mi localStorage.
+1. removeIdem(): función para eliminar un producto, reconociéndolo por su ID, y borrándolo del carrito.
+2. countProducts(): función para contar la cantidad de productos agregados en el carrito.
+3. total(): función para sumar los precios de los productos agregados al carrito y retornarme su total. 
+4. isInCart(): con un parámetro. Función para reconocer por su ID, si el producto ingresado existe en el carrito o no. 
+5. clear(): función para borrar todo lo que hay dentro del hook. Y además me borra todo lo que tenga en mi localStorage.
 - **Cart**: este componente seria el "carrito", el cual se puede visualizar los productos agregados, en una tabla, con la opcion de poder eliminar algun producto en particular o vaciar totalmente el carrito.
 - **Form**: se encuentra el formulario que debe completar el cliente. Tambien se encuentran sus validaciones y de realizar la orden. Al enviar se redirige al componente Dashboard. 
 - **Dashboard**: en él se visualizan todos los "tickets".
