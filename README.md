@@ -28,7 +28,7 @@ Con control + C , podrás finalizar la ejecución del programa.
 - Node JS (para la ejecución del servidor)
 - React JS 
 
-### Frameworks
+## Frameworks
 
 - Se importó Bootstrap v5.1.3. Éste es una librería (CSS) multiplataforma o conjunto de herramientas de código abierto para diseño de sitios y aplicaciones web. Contiene plantillas de diseño con tipografía, formularios, botones, cuadros, menús de navegación y otros elementos de diseño basado en HTML y CSS, así como extensiones de JavaScript adicionales.
 Se lo utilizó para el diseño de mi página, ya sea en el header(encabezado), para algunos de mis botones, en el diseño de mi Loader, entre otros. Me aseguré que la página sea responsive en los distintos dispositivos.
@@ -37,12 +37,12 @@ Se lo utilizó para el diseño de mi página, ya sea en el header(encabezado), p
 
 - Utilicé Font Awesome, es un framework de iconos vectoriales y estilos css. Es utilizado para sustituir imágenes de iconos comunes por gráficos vectoriales convertidos en fuentes. Posee mas de 400 iconos transformadas en fuentes. Lo utilicé en los botones de mi componente ItemCount.
 
-### public 
+## public 
 
 En public se encuentran distintas carpetas con fotos de mis productos para mi ecommerce.
 Además tambien se encuentra el index.html, donde modifique el titulo de mi página, agregando el logo, y asocie con un script el framework Font Awesome.
 
-### App.js y Routing
+## App.js y Routing
 
 Se encuentra instalado  react-router-dom versión 6.1
 En App.js se encuentran los siguientes ROUTERS:
@@ -52,7 +52,7 @@ En App.js se encuentran los siguientes ROUTERS:
 - El Dashboard tiene como parámetro: "/dashboard" . Éste me redirige a su componente propiamente dicho(Dashboard).
 - El Form tiene como parámetro: "/form" el cual te redirige a un formulario de datos del cliente.
 
-### Firebase - Firestore
+## Firebase - Firestore
 
 Firebase es una plataforma de back-end como servicio. Un servicio provisto por Google para satisfacer las distintas necesidades que puede tener una aplicación y su ciclo de desarrollo. 
 Para acceder a los servicios de firebase tuve que registrarme con mi cuenta de Gmail.
@@ -72,7 +72,7 @@ Se armó las siguientes:
 
 Una vez subido todos los datos tuve que instalar firebase a mi aplicación web para realizar la integración. De firebase obtuve las "api Keys" para acceder al servicio.
 
-### firebase.js
+## firebase.js
 
 La inicializacíon de firebase se realizó en un archivo aparte para tener un código mas ordenado y prolijo.
 Se encuentra en la carpeta "service/firebase/firebase.js".
@@ -90,7 +90,7 @@ Las variables de entorno son variables que yo puedo acceder a cualquier parte de
 El mismo se encuentra ignorado (en .gitignore) para cuando se tenga que pushear el proyecto a github.
 En este archivo cree variables con las credenciales de firebase.
 
-### Componentes
+## Componentes
 
 En src, se encuentra la carpeta "components", en éste se divide en diferentes carpetas con sus respectivos componentes y su estilo (SASS).
 
@@ -119,7 +119,7 @@ En el caso que ingresa por segunda vez, se suma la cantidad (del producto) ingre
 - **Dashboard**: en él se visualizan todos los "tickets".
 - **TicketsMessage**: contiene el "diseño" de cada uno de los tickets.
 
-### Autor
+## Autor
 
 Leysa Melina Pozo, programadora autodidacta, 26 años.
 Córdoba, Argentina.
