@@ -120,5 +120,3 @@ En el caso que ingresa por segunda vez, se suma la cantidad (del producto) ingre
 
 Leysa Melina Pozo, programadora autodidacta, 26 años.
 Córdoba, Argentina.
-<a href="www.linkedin.com/in/leysa-pozo">Mi link a LinkedIn</a>
-Mi link [a LinkedIn](www.linkedin.com/in/leysa-pozo) 
