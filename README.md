@@ -54,9 +54,7 @@ En App.js se encuentran los siguientes ROUTERS:
 
 ## Firebase - Firestore
 
-Firebase es una plataforma de back-end como servicio. Un servicio provisto por Google para satisfacer las distintas necesidades que puede tener una aplicación y su ciclo de desarrollo. 
-Para acceder a los servicios de firebase tuve que registrarme con mi cuenta de Gmail.
-Cree el nombre de mi proyecto y una vez listo entre al panel de control. En este panel accedí a Firestore Database para crear mi base de datos.
+Utilicé Firestore Database para crear mi base de datos.
 Los datos se almacenan en colecciones con sus respectivos campos.
  
 Se armó las siguientes: 
