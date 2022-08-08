@@ -8,6 +8,7 @@ import Cart from "./components/Cart/Cart.jsx";
 import CartContextProvider from "./components/Context/CartContext.js";
 import Dashboard from "./components/Dashboard/Dashboard.jsx";
 import Form from "./components/Form/Form.jsx";
+import Footer from "./components/Footer/Footer.js";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/form" element={<Form />} />
           </Routes>
+        <Footer />
         </BrowserRouter>
       </CartContextProvider>
     </div>
